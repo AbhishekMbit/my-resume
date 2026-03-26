@@ -1,134 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhishek Kumar Yadav | Safety Officer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary:#0a3d62;
-      --accent:#00a8ff;
-      --bg:#f4f6f8;
-      --card:#ffffff;
-      --text:#333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhishek Kumar Yadav | Safety Officer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    body.dark {
-      --bg:#121212;
-      --card:#1e1e1e;
-      --text:#f1f1f1;
-    }
+<style>
+:root {
+  --primary:#0a3d62;
+  --accent:#00a8ff;
+  --bg:#f4f6f8;
+  --card:#ffffff;
+  --text:#333;
+}
 
-    * { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
 
-    body {
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      transition:0.3s;
-    }
+header {
+  background:linear-gradient(135deg,#0a3d62,#1e5f8a);
+  color:white;
+  padding:80px 20px 40px;
+  text-align:center;
+  position:relative;
+}
 
-    header {
-      background:linear-gradient(135deg,var(--primary),#1e5f8a);
-      color:white;
-      padding:40px 20px;
-      text-align:center;
-      position:relative;
-    }
+header::before {
+  content:"";
+  position:absolute;
+  width:100%;height:100%;
+  background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e');
+  background-size:cover;
+  opacity:0.2;
+}
 
-    header img {
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      object-fit:cover;
-      border:4px solid white;
-      margin-bottom:10px;
-    }
+header * {position:relative;z-index:1;}
 
-    .toggle {
-      position:absolute;
-      top:20px;
-      right:20px;
-      background:white;
-      border:none;
-      padding:8px 12px;
-      border-radius:20px;
-      cursor:pointer;
-    }
+.profile-img {
+  width:140px;height:140px;border-radius:50%;
+  border:5px solid white;object-fit:cover;
+  transition:0.4s;
+}
 
-    .container {
-      max-width:1100px;
-      margin:auto;
-      padding:20px;
-    }
+.profile-img:hover {
+  transform:scale(1.15) rotate(5deg);
+  box-shadow:0 15px 30px rgba(0,0,0,0.5);
+}
 
-    .grid {
-      display:grid;
-      grid-template-columns:300px 1fr;
-      gap:20px;
-    }
+h1 {margin:10px 0;}
 
-    .card {
-      background:var(--card);
-      padding:20px;
-      border-radius:15px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-      transition:0.3s;
-    }
+.btn {
+  padding:10px 15px;background:var(--accent);
+  color:white;border-radius:8px;text-decoration:none;
+}
 
-    .card:hover { transform:translateY(-5px); }
+.container {max-width:1100px;margin:auto;padding:20px;}
 
-    h2 {
-      color:var(--primary);
-      border-bottom:2px solid var(--accent);
-      padding-bottom:5px;
-    }
+.grid {display:grid;grid-template-columns:300px 1fr;gap:20px;}
 
-    .tag {
-      display:inline-block;
-      background:#dff9fb;
-      padding:6px 10px;
-      margin:5px;
-      border-radius:6px;
-      font-size:13px;
-    }
+.card {
+  background:white;padding:20px;border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.4s;
+  opacity:0;transform:translateY(40px);
+}
 
-    .btn {
-      display:inline-block;
-      margin-top:10px;
-      padding:10px 15px;
-      background:var(--accent);
-      color:white;
-      text-decoration:none;
-      border-radius:8px;
-    }
+.card.show {
+  opacity:1;transform:translateY(0);
+}
 
-    .contact a {
-      display:block;
-      margin:5px 0;
-      color:var(--text);
-      text-decoration:none;
-    }
+.card:hover {transform:translateY(-10px);}
 
-    footer {
-      text-align:center;
-      padding:15px;
-      font-size:14px;
-      opacity:0.7;
-    }
+h2 {border-bottom:2px solid var(--accent);color:var(--primary);}
 
-    @media(max-width:768px){
-      .grid{ grid-template-columns:1fr; }
-    }
-  </style>
+.tag {
+  display:inline-block;padding:6px 10px;margin:5px;
+  background:#dff9fb;border-radius:6px;
+}
+
+/* 📊 Skill bar */
+.skill {
+  margin:10px 0;
+}
+.skill-bar {
+  height:8px;background:#ddd;border-radius:10px;
+}
+.skill-fill {
+  height:8px;background:var(--accent);
+  border-radius:10px;width:0;
+  transition:1s;
+}
+
+/* 💬 Floating WhatsApp */
+.whatsapp {
+  position:fixed;bottom:20px;right:20px;
+  background:#25D366;color:white;
+  padding:12px 15px;border-radius:50%;
+  font-size:20px;text-decoration:none;
+}
+
+footer {text-align:center;padding:15px;opacity:0.7;}
+
+@media(max-width:768px){.grid{grid-template-columns:1fr;}}
+</style>
 </head>
+
 <body>
 
 <header>
-  <button class="toggle" onclick="toggleMode()">🌙</button>
- <img src="img.jpeg" alt="profile" style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+  <img src="img.jpeg" class="profile-img">
   <h1>Abhishek Kumar Yadav</h1>
   <p>Safety Officer</p>
   <p>📞 7667617965 | ✉️ abhimbit76@gmail.com</p>
@@ -138,7 +124,6 @@
 <div class="container">
   <div class="grid">
 
-    <!-- Sidebar -->
     <div>
       <div class="card">
         <h2>About</h2>
@@ -147,31 +132,21 @@
 
       <div class="card">
         <h2>Skills</h2>
-        <div>
-          <span class="tag">MS Word</span>
-          <span class="tag">Excel</span>
-          <span class="tag">PowerPoint</span>
-          <span class="tag">AI Tools</span>
-        </div>
-      </div>
 
-      <div class="card">
-        <h2>Contact</h2>
-        <div class="contact">
-          <a href="tel:7667617965">📞 Call</a>
-          <a href="mailto:abhimbit76@gmail.com">✉️ Email</a>
-          <a href="https://wa.me/917667617965" target="_blank">💬 WhatsApp</a>
+        <div class="skill">
+          MS Excel
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
         </div>
+
+        <div class="skill">
+          Safety Management
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+
       </div>
     </div>
 
-    <!-- Main Content -->
     <div>
-      <div class="card">
-        <h2>Career Objective</h2>
-        <p>Seeking a challenging safety management role to create a safe work environment and improve operational safety standards.</p>
-      </div>
-
       <div class="card">
         <h2>Experience</h2>
         <p><strong>Sagar Construction Pvt. Ltd.</strong></p>
@@ -179,14 +154,10 @@
       </div>
 
       <div class="card">
-        <h2>Responsibilities</h2>
+        <h2>Certificates</h2>
         <ul>
-          <li>Risk assessment & hazard identification</li>
-          <li>Incident investigation</li>
-          <li>PPE inspection</li>
-          <li>Toolbox talks & training</li>
-          <li>Work at height & confined space safety</li>
-          <li>Permit to Work system</li>
+          <li>Advance Diploma in Industrial Safety</li>
+          <li>Workplace Safety Training</li>
         </ul>
       </div>
 
@@ -195,24 +166,30 @@
         <ul>
           <li>B.Tech – 2023</li>
           <li>ADIS – 2024</li>
-          <li>12th – 2019</li>
-          <li>10th – 2017</li>
         </ul>
       </div>
-
     </div>
 
   </div>
 </div>
+
+<a href="https://wa.me/917667617965" class="whatsapp">💬</a>
 
 <footer>
   © 2026 Abhishek Kumar Yadav
 </footer>
 
 <script>
-function toggleMode(){
-  document.body.classList.toggle('dark');
-}
+// Scroll animation
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      card.classList.add('show');
+    }
+  });
+});
 </script>
 
 </body>
